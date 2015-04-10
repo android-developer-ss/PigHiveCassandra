@@ -1,0 +1,7 @@
+SELECT m.title, m.genre 
+FROM Movies m JOIN Ratings r 
+on m.movie_id = r.movie_id JOIN Users u 
+on r.user_id = u.user_id and u.gender like '%M%' 
+WHERE (m.genre like '%Comedy%' or m.genre like '%Drama%') 
+GROUP BY m.title, m.genre 
+HAVING avg(r.rating) >= 4.5 and avg(r.rating) <= 4.6;

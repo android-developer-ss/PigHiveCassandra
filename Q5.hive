@@ -1,0 +1,5 @@
+SELECT mov.movie_id, AVG(rat.rating) as avg_rating, mov.title 
+FROM movies mov JOIN ratings rat ON (mov.movie_id = rat.movie_id AND mov.genre LIKE '%Comedy%' )  
+GROUP BY mov.movie_id, mov.title 
+ORDER BY avg_rating DESC
+LIMIT 11;
